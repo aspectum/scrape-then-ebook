@@ -1,0 +1,38 @@
+{
+  "name": "scrape-then-ebook",
+  "version": "1.0.0",
+  "description": "Scrapes a website then generates an ebook",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r dotenv/config script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aspectum/scrape-then-ebook.git"
+  },
+  "author": "Pedro Garcia",
+  "license": " GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/aspectum/scrape-then-ebook/issues"
+  },
+  "homepage": "https://github.com/aspectum/scrape-then-ebook#readme",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "jsdom": "^18.0.0",
+    "puppeteer": "^10.4.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.15.8",
+    "@types/axios": "^0.14.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1"
+  }
+}
