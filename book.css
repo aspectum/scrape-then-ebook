@@ -524,6 +524,10 @@ figure.image.floatleft figcaption, figure.image.floatright figcaption {
 
 p + p { text-indent: 1.3em; margin-top: 0; } /* indent each new line, except when it is after a heading or hr tag */
 
+h1, h2 {
+  text-align: center;
+}
+
 /* NOTE: I replaced this line:
  * .err { border: 1px solid #FF0000 }
  * with this:
