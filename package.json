@@ -20,8 +20,7 @@
   "homepage": "https://github.com/aspectum/scrape-then-ebook#readme",
   "dependencies": {
     "axios": "^0.23.0",
-    "jsdom": "^18.0.0",
-    "puppeteer": "^10.4.0"
+    "jsdom": "^18.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.8",
