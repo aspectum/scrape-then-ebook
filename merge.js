@@ -12,8 +12,8 @@ import fs from 'fs';
     var refCounter = 0; // displace footnotes
 
     const re = /\[\^\d\]/g; // match footnotes
-    const quotesRe = /“.*”/g; // match text between quotes (smart quotes)
-    const quotesRe2 = /".*"/g; // match text between quotes (dumb quotes)
+    const quotesRe = /“[^“”]*”/g; // match text between quotes (smart quotes)
+    const quotesRe2 = /"[^"]*"/g; // match text between quotes (dumb quotes)
 
     volumes.forEach(async (vol) => {
         // volume title
