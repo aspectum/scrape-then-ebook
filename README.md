@@ -1,9 +1,16 @@
 # scrape-then-ebook
 Scrapes a website then generates an ebook
 
-Files:
+### Files:
 * script.js: file to scrape site and save as markdown files. This is specific to one website, must adapt to others.
 * merge.js: merge and format all markdown files into one to prepare for pandoc
-* title.txt: ebook metadata
+* title.txt: ebook metadata (replace ... with the appropriate info)
 * book.css: styling for ebook
 * make-ebook.sh: pandoc command to generate ebook from merged markdown file
+
+### How to run
+```
+npm run scrape
+npm run merge
+npm run ebook
+```
