@@ -1,8 +1,9 @@
 import fs from 'fs';
+import path from 'path';
 
 // wrapping function to get around annoying ESlint
 (async () => {
-    const rootdir = process.cwd() + '/volumes';
+    const rootdir = path.join(process.cwd(), 'output', 'volumes');
 
     // "range"
     const volumes = String([...Array(12).keys()]).split(',');
@@ -79,6 +80,6 @@ import fs from 'fs';
 
     // dumb waiting for async function to run before writing to file
     setTimeout(() => {
-        fs.writeFileSync('merged.md', md);
+        fs.writeFileSync(path.join(rootdir, '..', 'merged.md'), md);
     }, 1000);
 })();

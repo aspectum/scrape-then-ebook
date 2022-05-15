@@ -1,1 +1,0 @@
-pandoc --toc --epub-cover-image=volumes/0/cover.jpg --css=book.css -o wcss.epub title.txt merged.md

@@ -5,8 +5,9 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node -r dotenv/config script.js"
+    "scrape": "node -r dotenv/config src/script.js",
+    "merge": "node -r dotenv/config src/merge.js",
+    "ebook": "bash src/make-ebook.sh"
   },
   "repository": {
     "type": "git",

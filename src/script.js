@@ -24,9 +24,9 @@ const downloadImage = async (link, file) => {
 (async () => {
     console.log(process.env.URL);
 
-    const rootdir = path.join(process.cwd(), 'volumes');
+    const rootdir = path.join(process.cwd(), 'output', 'volumes');
     if (!fs.existsSync(rootdir)) {
-        fs.mkdirSync(rootdir);
+        fs.mkdirSync(rootdir, { recursive: true });
     }
 
     let res = await axios.get(process.env.URL);
