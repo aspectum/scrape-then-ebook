@@ -5,9 +5,12 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "scrape": "node -r dotenv/config src/script.js",
-    "merge": "node -r dotenv/config src/merge.js",
-    "ebook": "bash src/make-ebook.sh"
+    "clear": "rm -rf ./build ./output",
+    "scrape": "esbuild --outdir=build ./src/scrape.ts && node -r dotenv/config build/scrape.js",
+    "merge": "esbuild --outdir=build ./src/merge.ts && node -r dotenv/config build/merge.js",
+    "test": "esbuild --outdir=build ./src/test.ts && node -r dotenv/config build/test.js",
+    "ebook": "bash src/make-ebook.sh",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,19 +23,24 @@
   },
   "homepage": "https://github.com/aspectum/scrape-then-ebook#readme",
   "dependencies": {
-    "axios": "^0.23.0",
-    "jsdom": "^18.0.0"
+    "@mozilla/readability": "^0.4.2",
+    "@types/node": "^18.0.5",
+    "@types/turndown": "^5.0.1",
+    "axios": "^0.27.2",
+    "linkedom": "^0.14.9",
+    "turndown": "^7.1.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.8",
-    "@types/axios": "^0.14.0",
     "dotenv": "^10.0.0",
+    "esbuild": "^0.14.49",
     "eslint": "^8.0.1",
     "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "typescript": "^4.7.4"
   }
 }
