@@ -104,6 +104,8 @@ dist
 .tern-port
 
 volumes
-*.md
-*.epub
+output
 old
+build
+
+src/title.txt
