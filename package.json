@@ -8,7 +8,7 @@
     "clear": "rm -rf ./build ./output",
     "scrape": "esbuild --outdir=build ./src/scrape.ts && node -r dotenv/config build/scrape.js",
     "merge": "esbuild --outdir=build ./src/merge.ts && node -r dotenv/config build/merge.js",
-    "test": "esbuild --outdir=build ./src/test.ts && node -r dotenv/config build/test.js",
+    "get-images": "esbuild --outdir=build ./src/get-images.ts && node -r dotenv/config build/get-images.js",
     "ebook": "bash src/make-ebook.sh",
     "build": "tsc"
   },
