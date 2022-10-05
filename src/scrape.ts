@@ -21,5 +21,5 @@ console.log(`${chapters.length} chapters`);
 chapters.forEach(async (chapter, chapIndex) => {
   const link = chapter.querySelector('a')!.href;
   console.log(`Processing chapter ${chapIndex + 1}`);
-  scrapeParseAndSave(buildUrl(link), path.join(rootdir, `${chapIndex + 1}.md`));
+  scrapeParseAndSave(buildUrl(link), path.join(rootdir, `${chapIndex + 1}.html`));
 });

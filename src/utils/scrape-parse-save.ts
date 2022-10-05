@@ -1,24 +1,15 @@
 import fs from 'fs';
-import TurndownService from 'turndown';
-import turndownPluginGfm from '@joplin/turndown-plugin-gfm';
-import { cleanMD, fetchAndParseHTML, readability } from './index';
-
-const gfm = turndownPluginGfm.gfm;
-const turndownService = new TurndownService();
-turndownService.use(gfm);
+import { fetchAndParseHTML, readability } from './index';
 
 export const scrapeParseAndSave = async (url: string, filePath: string) => {
   const doc = await fetchAndParseHTML(url);
 
   const article = readability(doc);
 
-  let md = `# ${article.title}\n\n`;
+  let html = `<h2>${article.title}</h2>\n\n`;
+  html = html + article.content;
 
-  md = md + turndownService.turndown(article.content);
-
-  md = cleanMD(md);
-
-  fs.writeFileSync(filePath, md);
+  fs.writeFileSync(filePath, html);
 };
 
 // for running this file from command line

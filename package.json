@@ -13,6 +13,7 @@
     "merge": "yarn build && yarn run node build/merge.js",
     "find-images": "grep -ER '!\\[\\]\\(' output --color=always",
     "get-images": "yarn build && yarn run node build/get-images.js",
+    "clean-html": "yarn build && yarn run node build/utils/clean-html.js",
     "ebook": "bash src/make-ebook.sh",
     "postinstall": "git apply patch/sloppy.patch"
   },
@@ -27,13 +28,11 @@
   },
   "homepage": "https://github.com/aspectum/scrape-then-ebook#readme",
   "dependencies": {
-    "@joplin/turndown-plugin-gfm": "^1.0.44",
     "@mozilla/readability": "^0.4.2",
     "@types/node": "^18.0.5",
-    "@types/turndown": "^5.0.1",
     "axios": "^0.27.2",
-    "linkedom": "^0.14.9",
-    "turndown": "^7.1.1"
+    "htmltidy2": "^1.0.0",
+    "linkedom": "^0.14.9"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.8",
