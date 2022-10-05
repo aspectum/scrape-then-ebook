@@ -135,6 +135,11 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@joplin/turndown-plugin-gfm@^1.0.44":
+  version "1.0.44"
+  resolved "https://registry.yarnpkg.com/@joplin/turndown-plugin-gfm/-/turndown-plugin-gfm-1.0.44.tgz#028e4c56bf58e57a4d0d923bb7d10a21c30d5c7d"
+  integrity sha512-lpVI/fpj0CKzWzpsOxsmqwjWlIrw+IZlIEz3h8Vqoviz8dCYbqSSY/4VxpiUDmBpxX/3Xk73R5BfzqiAHBmYqA==
+
 "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.2.tgz#c1aedc61e853f2bb9f5dfe6d4442d3b565b253b9"
@@ -1267,6 +1272,11 @@ htmlparser2@^8.0.1:
     domhandler "^5.0.2"
     domutils "^3.0.1"
     entities "^4.3.0"
+
+htmltidy2@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/htmltidy2/-/htmltidy2-1.0.0.tgz#5661501e9ac93bab281222eab4c91d5a7b0227f8"
+  integrity sha512-UwQiIt/Fn/YmaaUfe+9XscmffNvaghb0IrP9RWFXIk3ag/rWgNxLKVEqvEd5yFkQSwx/o/EMo4V5ZtA+pEZRsg==
 
 iconv-lite@^0.4.24:
   version "0.4.24"
