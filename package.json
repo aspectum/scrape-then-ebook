@@ -13,7 +13,8 @@
     "merge": "yarn build && yarn run node build/merge.js",
     "find-images": "grep -ER '!\\[\\]\\(' output --color=always",
     "get-images": "yarn build && yarn run node build/get-images.js",
-    "ebook": "bash src/make-ebook.sh"
+    "ebook": "bash src/make-ebook.sh",
+    "postinstall": "git apply patch/sloppy.patch"
   },
   "repository": {
     "type": "git",
