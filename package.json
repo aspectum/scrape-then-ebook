@@ -2,20 +2,16 @@
   "name": "scrape-then-ebook",
   "version": "1.0.0",
   "description": "Scrapes a website then generates an ebook",
-  "main": "app.js",
   "type": "module",
   "scripts": {
-    "build": "esbuild `find src -name '*.ts'` --outdir=build",
     "clean": "rm -rf ./build ./output",
-    "node": "node -r dotenv/config --experimental-specifier-resolution=node",
-    "scrape": "yarn build && yarn run node build/scrape.js",
-    "scrape-link": "yarn build && yarn run node build/utils/scrape-parse-save.js",
-    "merge": "yarn build && yarn run node build/merge.js",
+    "scrape": "tsx src/scrape.ts",
+    "scrape-link": "tsx src/utils/scrape-parse-save.ts",
+    "merge": "tsx src/merge.ts",
     "find-images": "grep -ER '!\\[\\]\\(' output --color=always",
-    "get-images": "yarn build && yarn run node build/get-images.js",
-    "clean-html": "yarn build && yarn run node build/utils/clean-html.js",
-    "ebook": "bash src/make-ebook.sh",
-    "postinstall": "git apply patch/sloppy.patch"
+    "get-images": "tsx src/get-images.ts",
+    "clean-html": "tsx src/utils/clean-html.ts",
+    "ebook": "bash src/make-ebook.sh"
   },
   "repository": {
     "type": "git",
@@ -45,6 +41,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1",
+    "tsx": "^3.12.3",
     "typescript": "^4.7.4"
   }
 }
