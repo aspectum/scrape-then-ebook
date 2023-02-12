@@ -11,7 +11,8 @@
     "find-images": "grep -ER '!\\[\\]\\(' output --color=always",
     "get-images": "tsx src/get-images.ts",
     "clean-html": "tsx src/utils/clean-html.ts",
-    "ebook": "bash src/make-ebook.sh"
+    "ebook": "bash src/make-ebook.sh",
+    "fix-kindle": "ebook-convert ./output/wcss.epub ./output/fix.azw3 --output-profile kindle_pw3 && ebook-convert ./output/fix.azw3 ./output/fix.epub --output-profile kindle_pw3"
   },
   "repository": {
     "type": "git",
