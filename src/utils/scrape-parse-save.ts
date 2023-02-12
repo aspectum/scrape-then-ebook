@@ -6,7 +6,7 @@ export const scrapeParseAndSave = async (url: string, filePath: string) => {
 
   const article = readability(doc);
 
-  let html = `<h2>${article.title}</h2>\n\n`;
+  let html = `<h1>${article.title}</h1>\n\n`;
   html = html + article.content;
 
   fs.writeFileSync(filePath, html);
