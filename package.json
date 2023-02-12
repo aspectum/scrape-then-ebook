@@ -4,7 +4,7 @@
   "description": "Scrapes a website then generates an ebook",
   "type": "module",
   "scripts": {
-    "clean": "rm -rf ./build ./output",
+    "delete": "rm -rf ./build ./output",
     "scrape": "tsx src/scrape.ts",
     "scrape-link": "tsx src/utils/scrape-parse-save.ts",
     "merge": "tsx src/merge.ts",
