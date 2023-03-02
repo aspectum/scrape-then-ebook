@@ -2,12 +2,11 @@ import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import { downloadImage } from './get-images';
-import { fetchAndParseHTML, scrapeParseAndSave } from './utils';
+import { cli, fetchAndParseHTML, scrapeParseAndSave } from './utils';
 
-const BASE_URL = process.env.BASE_URL as string;
-const MAIN_URL = process.argv[2]
-  ? BASE_URL + '/fiction/' + process.argv[2].match(/\d/g)?.join('')
-  : (process.env.MAIN_URL as string);
+const MAIN_URL = cli.input[0];
+const BASE_URL = new URL(MAIN_URL).origin;
+
 const buildUrl = (path: string) => BASE_URL + path;
 
 const rootdir = path.join(process.cwd(), 'output');

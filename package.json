@@ -29,7 +29,8 @@
     "@types/node": "^18.0.5",
     "axios": "^0.27.2",
     "htmltidy2": "^1.0.0",
-    "linkedom": "^0.14.9"
+    "linkedom": "^0.14.9",
+    "meow": "^11.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.8",
