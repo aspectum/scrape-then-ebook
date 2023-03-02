@@ -6,7 +6,7 @@
   "scripts": {
     "delete": "rm -rf ./build ./output",
     "scrape": "tsx src/scrape.ts",
-    "scrape-link": "tsx src/lib/scrape-parse-save.ts",
+    "scrape-link": "tsx src/scrape-link.ts",
     "merge": "tsx src/merge.ts",
     "clean-html": "tsx src/clean-html.ts",
     "ebook": "bash src/make-ebook.sh",

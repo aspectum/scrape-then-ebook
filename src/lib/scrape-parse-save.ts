@@ -11,8 +11,3 @@ export const scrapeParseAndSave = async (url: string, filePath: string) => {
 
   fs.writeFileSync(filePath, html);
 };
-
-// for running this file from command line
-if (process.argv[2] && process.argv[3]) {
-  scrapeParseAndSave(process.argv[2], process.argv[3]);
-}
