@@ -1,6 +1,6 @@
 import path from 'path';
 import { cli, createDirectories, fetchAndParseHTML, scrapeParseAndSave } from './lib';
-import { downloadImage } from './lib/download-image';
+import { getCover } from './lib/get-cover';
 import { getMetadata } from './lib/get-metadata';
 
 const MAIN_URL = cli.input[0];
@@ -36,14 +36,4 @@ chapters.slice(STARTING_CHAPTER - 1, ENDING_CHAPTER).forEach(async (chapter, cha
 
 getMetadata(doc, rootdir);
 
-// get cover
-
-console.log(`Getting cover`);
-
-const coverUrl = doc
-  .querySelector<HTMLImageElement>('.cover-art-container img')
-  ?.src?.replace('covers-full', 'covers-large');
-console.log(coverUrl);
-if (coverUrl) {
-  downloadImage(coverUrl, path.join(rootdir, 'cover.jpg'));
-}
+getCover(doc, rootdir);
