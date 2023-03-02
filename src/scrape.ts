@@ -26,6 +26,13 @@ const chapters = [...doc.querySelectorAll<HTMLDivElement>('.chapter-row')];
 
 console.log(`${chapters.length} chapters`);
 
+if (cli.flags.list) {
+  chapters.forEach((chapter, chapIndex) => {
+    console.log(`[${chapIndex + 1}] ${chapter.querySelector('a')!.textContent!.trim()}`);
+  });
+  process.exit();
+}
+
 chapters.forEach(async (chapter, chapIndex) => {
   const link = chapter.querySelector('a')!.href;
   console.log(`Processing chapter ${chapIndex + 1}`);
