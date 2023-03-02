@@ -1,7 +1,6 @@
-import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
-import { cli, fetchAndParseHTML, scrapeParseAndSave } from './lib';
+import { cli, createDirectories, fetchAndParseHTML, scrapeParseAndSave } from './lib';
 import { downloadImage } from './lib/download-image';
 
 const MAIN_URL = cli.input[0];
@@ -12,14 +11,7 @@ const buildUrl = (path: string) => BASE_URL + path;
 const STARTING_CHAPTER = cli.flags.start || 1;
 const ENDING_CHAPTER = cli.flags.end || 1;
 
-const rootdir = path.join(process.cwd(), 'output');
-if (fs.existsSync(rootdir)) {
-  fs.rmSync(rootdir, { recursive: true, force: true });
-}
-fs.mkdirSync(rootdir, { recursive: true });
-
-const chaptersdir = path.join(rootdir, 'chapters');
-fs.mkdirSync(chaptersdir, { recursive: true });
+const { rootdir, chaptersdir } = createDirectories();
 
 console.log(`Scraping ${MAIN_URL}`);
 
