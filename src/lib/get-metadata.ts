@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import dedent from 'ts-dedent';
+import { dedent } from 'ts-dedent';
 
 export const getMetadata = (doc: Document, rootdir: string) => {
   console.log(`Getting metadata`);
