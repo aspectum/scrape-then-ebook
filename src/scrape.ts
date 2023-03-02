@@ -23,7 +23,7 @@ console.log(`Scraping ${MAIN_URL}`);
 
 const doc = await fetchAndParseHTML(MAIN_URL);
 
-const chapters = doc.querySelectorAll<HTMLDivElement>('.chapter-row');
+const chapters = [...doc.querySelectorAll<HTMLDivElement>('.chapter-row')];
 
 console.log(`${chapters.length} chapters`);
 
