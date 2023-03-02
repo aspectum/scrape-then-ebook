@@ -1,15 +1,15 @@
-import path from 'path';
-import { cli, createDirectories, fetchAndParseHTML, scrapeParseAndSave } from './lib';
+import { cli, createDirectories, fetchAndParseHTML } from './lib';
 import { getCover } from './lib/get-cover';
 import { getMetadata } from './lib/get-metadata';
+import { fixChapterNumbers, listChapters, scrapeChapters } from './lib/processors';
 
 const MAIN_URL = cli.input[0];
 const BASE_URL = new URL(MAIN_URL).origin;
 
 const buildUrl = (path: string) => BASE_URL + path;
 
-const STARTING_CHAPTER = cli.flags.start || 1;
-const ENDING_CHAPTER = cli.flags.end || 1;
+const STARTING_CHAPTER = cli.flags.start ? cli.flags.start - 1 : 0;
+const ENDING_CHAPTER = cli.flags.end;
 
 const { rootdir, chaptersdir } = createDirectories();
 
@@ -19,20 +19,15 @@ const doc = await fetchAndParseHTML(MAIN_URL);
 
 const chapters = [...doc.querySelectorAll<HTMLDivElement>('.chapter-row')];
 
-console.log(`${chapters.length} chapters`);
+const selectedChapters = chapters.slice(STARTING_CHAPTER, ENDING_CHAPTER);
 
-if (cli.flags.list) {
-  chapters.slice(STARTING_CHAPTER - 1, ENDING_CHAPTER).forEach((chapter, chapIndex) => {
-    console.log(`[${chapIndex + 1}] ${chapter.querySelector('a')!.textContent!.trim()}`);
-  });
-  process.exit();
-}
+console.log(`${selectedChapters.length} chapters`);
 
-chapters.slice(STARTING_CHAPTER - 1, ENDING_CHAPTER).forEach(async (chapter, chapIndex) => {
-  const link = chapter.querySelector('a')!.href;
-  console.log(`Processing chapter ${chapIndex + 1}`);
-  scrapeParseAndSave(buildUrl(link), path.join(chaptersdir, `${chapIndex + 1}.html`));
-});
+const processor = fixChapterNumbers(STARTING_CHAPTER)(
+  cli.flags.list ? listChapters : scrapeChapters(buildUrl, chaptersdir)
+);
+
+selectedChapters.forEach(processor);
 
 getMetadata(doc, rootdir);
 
