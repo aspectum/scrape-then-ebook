@@ -6,11 +6,9 @@
   "scripts": {
     "delete": "rm -rf ./build ./output",
     "scrape": "tsx src/scrape.ts",
-    "scrape-link": "tsx src/utils/scrape-parse-save.ts",
+    "scrape-link": "tsx src/lib/scrape-parse-save.ts",
     "merge": "tsx src/merge.ts",
-    "find-images": "grep -ER '!\\[\\]\\(' output --color=always",
-    "get-images": "tsx src/get-images.ts",
-    "clean-html": "tsx src/utils/clean-html.ts",
+    "clean-html": "tsx src/clean-html.ts",
     "ebook": "bash src/make-ebook.sh",
     "fix-kindle": "ebook-convert ./output/wcss.epub ./output/fix.azw3 --output-profile kindle_pw3 && ebook-convert ./output/fix.azw3 ./output/fix.epub --output-profile kindle_pw3"
   },

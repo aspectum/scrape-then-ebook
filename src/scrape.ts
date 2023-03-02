@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
-import { downloadImage } from './get-images';
-import { cli, fetchAndParseHTML, scrapeParseAndSave } from './utils';
+import { cli, fetchAndParseHTML, scrapeParseAndSave } from './lib';
+import { downloadImage } from './lib/download-image';
 
 const MAIN_URL = cli.input[0];
 const BASE_URL = new URL(MAIN_URL).origin;
