@@ -6,7 +6,9 @@ export const cli = meow(
 	  $ yarn scrape <url>
 
 	Options
-	  --list, -L  Only list the available chapters
+	  --list, -L   Only list the available chapters
+	  --start, -S  Number of starting chapter
+	  --end, -E    Number of ending chapter
 
 	Examples
 	  $ foo unicorns --rainbow
@@ -18,6 +20,14 @@ export const cli = meow(
       list: {
         type: 'boolean',
         alias: 'L',
+      },
+      start: {
+        type: 'number',
+        alias: 'S',
+      },
+      end: {
+        type: 'number',
+        alias: 'E',
       },
     },
   }

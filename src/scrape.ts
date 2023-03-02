@@ -9,6 +9,9 @@ const BASE_URL = new URL(MAIN_URL).origin;
 
 const buildUrl = (path: string) => BASE_URL + path;
 
+const STARTING_CHAPTER = cli.flags.start || 1;
+const ENDING_CHAPTER = cli.flags.end || 1;
+
 const rootdir = path.join(process.cwd(), 'output');
 if (fs.existsSync(rootdir)) {
   fs.rmSync(rootdir, { recursive: true, force: true });
@@ -27,13 +30,13 @@ const chapters = [...doc.querySelectorAll<HTMLDivElement>('.chapter-row')];
 console.log(`${chapters.length} chapters`);
 
 if (cli.flags.list) {
-  chapters.forEach((chapter, chapIndex) => {
+  chapters.slice(STARTING_CHAPTER - 1, ENDING_CHAPTER).forEach((chapter, chapIndex) => {
     console.log(`[${chapIndex + 1}] ${chapter.querySelector('a')!.textContent!.trim()}`);
   });
   process.exit();
 }
 
-chapters.forEach(async (chapter, chapIndex) => {
+chapters.slice(STARTING_CHAPTER - 1, ENDING_CHAPTER).forEach(async (chapter, chapIndex) => {
   const link = chapter.querySelector('a')!.href;
   console.log(`Processing chapter ${chapIndex + 1}`);
   scrapeParseAndSave(buildUrl(link), path.join(chaptersdir, `${chapIndex + 1}.html`));
