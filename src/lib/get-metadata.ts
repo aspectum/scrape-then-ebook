@@ -7,7 +7,8 @@ export const getMetadata = (doc: Document, rootdir: string) => {
 
   const title = doc.querySelector('h1[property=name]')?.textContent ?? 'No Title';
   const author =
-    doc.querySelector('h4[property=author] span[property=name] a')?.textContent ?? 'No Author';
+    // @ts-ignore
+    doc.querySelector('meta[property="books:author"]')?.content ?? 'No Author';
 
   const metadata = dedent`<dc:title>${title}</dc:title>
                           <dc:language>en-US</dc:language>
